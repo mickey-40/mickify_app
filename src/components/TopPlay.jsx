@@ -13,7 +13,7 @@ import 'swiper/css';
 import 'swiper/css/free-mode'
 import { MdOutlineLocalLaundryService } from "react-icons/md";
 
-const TopChartCard = ({ song, i }) => (
+const TopChartCard = ({ song, i, isPlaying, activeSong, handlePauseClick, handlePlayClick }) => (
   <div className="w-full flex flex-row items-center hover-bg-[#4c426e] py-2 p-4 rounded-lg cursor-pointer mb-2">
     <h3 className="fot-bold text-base text-white mr-3">{i+1}</h3>
     <div className="flex-1 flex flex-row justify-between">
@@ -67,6 +67,10 @@ const TopPlay = () => {
               key={song.key}
               song={song} 
               i={i}
+              isPlaying={isPlaying}
+              activeSong={activeSong}
+              handlePauseClick={handlePauseClick}
+              handlePlayClick={handlePlayClick}
             />
           ))}
         </div>
