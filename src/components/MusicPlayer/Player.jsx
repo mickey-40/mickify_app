@@ -12,7 +12,13 @@ const Player = ({ activeSong, isPlaying, volume, seekTime, onEnded, onTimeUpdate
     }
   }
 
-  
+  const playSongPlease = ( songFile ) => {
+    if (songFile.hub.actions){
+      return songFile.hub.actions[1].uri
+    } else {
+      return songFile.hub.options[0].actions[1].uri
+    }
+  }
 
   useEffect(() => {
     ref.current.volume = volume;
@@ -25,7 +31,7 @@ const Player = ({ activeSong, isPlaying, volume, seekTime, onEnded, onTimeUpdate
   return (
     
     <audio
-      src={activeSong?.hub?.actions[1]?.uri}
+      src={playSongPlease(activeSong)}
       ref={ref}
       loop={repeat}
       onEnded={onEnded}
