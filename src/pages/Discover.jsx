@@ -17,7 +17,7 @@ const Discover = () => {
   
 
   const genreTitle = 'Pop';
-  console.log(data)
+  // console.log(data)
 
   if(isFetching) return <Loader title="Loading songs..." />;  
 
